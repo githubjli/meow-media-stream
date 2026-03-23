@@ -4,7 +4,7 @@ import { LiveStream } from '@/lib/api/types';
 import { Logo } from '@/components/common/Logo';
 import { StatusBadge } from '@/components/common/StatusBadge';
 
-export function LiveCard({ stream }: { stream: LiveStream }) {
+export default function LiveCard({ stream }: { stream: LiveStream }) {
   return (
     <Link href={`/videos/${stream.id}`}>
       <Card hoverable className="brand-card overflow-hidden border-0">

@@ -1,6 +1,6 @@
 import { Input, Select, Tag } from 'antd';
-import { VideoCard } from '@/components/cards/VideoCard';
-import { AppLayout } from '@/components/layout/AppLayout';
+import VideoCard from '@/components/cards/VideoCard';
+import AppLayout from '@/components/layout/AppLayout';
 import { categories, sampleVideos } from '@/lib/api/media';
 
 export default function BrowsePage() {

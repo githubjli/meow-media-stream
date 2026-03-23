@@ -1,7 +1,7 @@
 import { Button } from 'antd';
 import Link from 'next/link';
 
-export function SectionHeader({ title, subtitle, actionLabel, actionHref }: { title: string; subtitle?: string; actionLabel?: string; actionHref?: string; }) {
+export default function SectionHeader({ title, subtitle, actionLabel, actionHref }: { title: string; subtitle?: string; actionLabel?: string; actionHref?: string; }) {
   return (
     <div className="mb-5 flex items-end justify-between gap-4">
       <div>

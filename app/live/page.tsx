@@ -1,7 +1,7 @@
 import { Segmented } from 'antd';
-import { LiveCard } from '@/components/live/LiveCard';
-import { AppLayout } from '@/components/layout/AppLayout';
-import { SectionHeader } from '@/components/common/SectionHeader';
+import LiveCard from '@/components/live/LiveCard';
+import AppLayout from '@/components/layout/AppLayout';
+import SectionHeader from '@/components/common/SectionHeader';
 import { sampleStreams } from '@/lib/api/media';
 
 export default function LivePage() {

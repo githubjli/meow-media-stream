@@ -2,7 +2,7 @@
 
 import { CheckCircleOutlined, VideoCameraOutlined } from '@ant-design/icons';
 import { Button, Card, Form, Input, Radio, Select, Space, Steps } from 'antd';
-import { AppLayout } from '@/components/layout/AppLayout';
+import AppLayout from '@/components/layout/AppLayout';
 import { StreamInfoPanel } from '@/components/live/StreamInfoPanel';
 import { categories } from '@/lib/api/media';
 

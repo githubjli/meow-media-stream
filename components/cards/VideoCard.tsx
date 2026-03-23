@@ -2,7 +2,7 @@ import { Card, Tag } from 'antd';
 import Link from 'next/link';
 import { Video } from '@/lib/api/types';
 
-export function VideoCard({ video }: { video: Video }) {
+export default function VideoCard({ video }: { video: Video }) {
   return (
     <Link href={`/videos/${video.id}`}>
       <Card hoverable className="brand-card overflow-hidden border-0" cover={

@@ -1,10 +1,10 @@
 import { Button, Card, Tag } from 'antd';
 import Link from 'next/link';
-import { VideoCard } from '@/components/cards/VideoCard';
-import { CreatorCard } from '@/components/cards/CreatorCard';
-import { LiveCard } from '@/components/live/LiveCard';
-import { SectionHeader } from '@/components/common/SectionHeader';
-import { AppLayout } from '@/components/layout/AppLayout';
+import VideoCard from '@/components/cards/VideoCard';
+import CreatorCard from '@/components/cards/CreatorCard';
+import LiveCard from '@/components/live/LiveCard';
+import SectionHeader from '@/components/common/SectionHeader';
+import AppLayout from '@/components/layout/AppLayout';
 import { categories, creators, sampleStreams, sampleVideos } from '@/lib/api/media';
 
 export default function HomePage() {

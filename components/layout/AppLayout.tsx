@@ -5,7 +5,7 @@ import { TopNav } from './TopNav';
 
 const { Content } = Layout;
 
-export function AppLayout({ children }: PropsWithChildren) {
+export default function AppLayout({ children }: PropsWithChildren) {
   return (
     <Layout className="min-h-screen !bg-brand-background" hasSider>
       <Sidebar />

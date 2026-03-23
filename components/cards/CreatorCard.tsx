@@ -1,7 +1,7 @@
 import { Avatar, Button, Card } from 'antd';
 import { Creator } from '@/lib/api/types';
 
-export function CreatorCard({ creator }: { creator: Creator }) {
+export default function CreatorCard({ creator }: { creator: Creator }) {
   return (
     <Card className="brand-card border-0">
       <div className="flex items-center gap-4">
