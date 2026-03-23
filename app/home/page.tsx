@@ -1,3 +1,6 @@
+'use client';
+
+import { useEffect, useState } from 'react';
 import { Button, Card, Tag } from 'antd';
 import Link from 'next/link';
 import VideoCard from '@/components/cards/VideoCard';
@@ -5,9 +8,51 @@ import CreatorCard from '@/components/cards/CreatorCard';
 import LiveCard from '@/components/live/LiveCard';
 import SectionHeader from '@/components/common/SectionHeader';
 import AppLayout from '@/components/layout/AppLayout';
-import { categories, creators, sampleStreams, sampleVideos } from '@/lib/api/media';
+import { apiGet } from '@/lib/api/client';
+import { categories, creators, sampleStreams } from '@/lib/api/media';
+import type { Video } from '@/lib/api/types';
+
+function normalizeVideo(video: Record<string, any>): Video {
+  return {
+    id: String(video.id ?? video.pk ?? crypto.randomUUID()),
+    title: video.title ?? video.name ?? 'Untitled video',
+    thumbnail: video.thumbnail ?? video.thumbnail_url ?? video.cover,
+    playbackUrl: video.playbackUrl ?? video.playback_url ?? video.stream_url,
+    duration: video.duration,
+    views: video.views ?? video.view_count,
+    publishedAt: video.publishedAt ?? video.published_at ?? video.created_at,
+    description: video.description,
+    creator: {
+      id: String(video.creator?.id ?? video.user?.id ?? 'unknown-creator'),
+      name: video.creator?.name ?? video.creator?.username ?? video.user?.username ?? 'Unknown creator',
+      handle: video.creator?.handle ?? `@${video.creator?.username ?? video.user?.username ?? 'creator'}`,
+      avatar: video.creator?.avatar ?? video.user?.avatar,
+    },
+    category: video.category
+      ? {
+          id: String(video.category.id ?? video.category.slug ?? video.category.name ?? 'category'),
+          name: video.category.name ?? video.category.title ?? 'General',
+          slug: video.category.slug ?? String(video.category.id ?? video.category.name ?? 'general').toLowerCase(),
+        }
+      : undefined,
+  };
+}
 
 export default function HomePage() {
+  const [videos, setVideos] = useState<Video[]>([]);
+
+  useEffect(() => {
+    apiGet('/public/videos/?page_size=6')
+      .then((data) => {
+        console.log('VIDEOS:', data);
+        const results = Array.isArray(data?.results) ? data.results : Array.isArray(data) ? data : [];
+        setVideos(results.map(normalizeVideo));
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }, []);
+
   return (
     <AppLayout>
       <div className="space-y-10">
@@ -58,7 +103,7 @@ export default function HomePage() {
         <section>
           <SectionHeader title="Latest videos" subtitle="Fresh uploads optimized for retention." actionLabel="See all" actionHref="/browse" />
           <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-            {sampleVideos.map((video) => <VideoCard key={video.id} video={video} />)}
+            {videos.map((video) => <VideoCard key={video.id} video={video} />)}
           </div>
         </section>
 

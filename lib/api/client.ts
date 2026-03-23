@@ -1,21 +1,11 @@
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:8000';
-
-async function apiFetch<T>(path: string, init?: RequestInit): Promise<T> {
-  const response = await fetch(`${API_BASE_URL}${path}`, {
-    ...init,
-    headers: {
-      'Content-Type': 'application/json',
-      ...(init?.headers || {}),
-    },
+export async function apiGet(url: string) {
+  const res = await fetch(`/api${url}`, {
+    credentials: 'include',
   });
 
-  if (!response.ok) {
-    throw new Error(`API request failed for ${path}: ${response.status}`);
+  if (!res.ok) {
+    throw new Error(`API error: ${res.status}`);
   }
 
-  return response.json() as Promise<T>;
+  return res.json();
 }
-
-export const apiClient = {
-  get: apiFetch,
-};
