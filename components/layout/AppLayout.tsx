@@ -1,7 +1,7 @@
 import { Layout } from 'antd';
 import { PropsWithChildren } from 'react';
-import { Sidebar } from './Sidebar';
-import { TopNav } from './TopNav';
+import Sidebar from './Sidebar';
+import TopNav from './TopNav';
 
 const { Content } = Layout;
 

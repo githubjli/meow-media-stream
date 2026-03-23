@@ -7,7 +7,7 @@ const styles: Record<StreamStatus, string> = {
   ended: 'bg-stone-800 text-stone-100',
 };
 
-export function StatusBadge({ status }: { status: StreamStatus }) {
+export default function StatusBadge({ status }: { status: StreamStatus }) {
   return (
     <span className={clsx('inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em]', styles[status])}>
       {status}

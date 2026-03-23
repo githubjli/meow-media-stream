@@ -4,7 +4,7 @@ import { DashboardOutlined, HomeOutlined, PlayCircleOutlined, VideoCameraOutline
 import { Layout, Menu } from 'antd';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Logo } from '@/components/common/Logo';
+import Logo from '@/components/common/Logo';
 import { categories } from '@/lib/api/media';
 
 const { Sider } = Layout;
@@ -16,7 +16,7 @@ const items = [
   { key: '/studio', icon: <DashboardOutlined />, label: <Link href="/studio">Studio</Link> },
 ];
 
-export function Sidebar() {
+export default function Sidebar() {
   const pathname = usePathname();
 
   return (

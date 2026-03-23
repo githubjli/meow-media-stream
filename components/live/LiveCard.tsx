@@ -1,8 +1,8 @@
 import { Card } from 'antd';
 import Link from 'next/link';
 import { LiveStream } from '@/lib/api/types';
-import { Logo } from '@/components/common/Logo';
-import { StatusBadge } from '@/components/common/StatusBadge';
+import Logo from '@/components/common/Logo';
+import StatusBadge from '@/components/common/StatusBadge';
 
 export default function LiveCard({ stream }: { stream: LiveStream }) {
   return (

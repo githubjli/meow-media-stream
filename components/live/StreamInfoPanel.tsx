@@ -1,7 +1,7 @@
 import { Card, Input } from 'antd';
-import { CopyButton } from '@/components/common/CopyButton';
+import CopyButton from '@/components/common/CopyButton';
 
-export function StreamInfoPanel({ rtmpUrl, streamKey, playbackUrl }: { rtmpUrl: string; streamKey: string; playbackUrl: string; }) {
+export default function StreamInfoPanel({ rtmpUrl, streamKey, playbackUrl }: { rtmpUrl: string; streamKey: string; playbackUrl: string; }) {
   const items = [
     { label: 'RTMP URL', value: rtmpUrl },
     { label: 'Stream Key', value: streamKey },

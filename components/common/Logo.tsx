@@ -12,7 +12,7 @@ const sizes = {
   large: { icon: 52, text: 'text-2xl' },
 };
 
-export function Logo({ size = 'medium', variant = 'inline', showWordmark = true }: LogoProps) {
+export default function Logo({ size = 'medium', variant = 'inline', showWordmark = true }: LogoProps) {
   const config = sizes[size];
 
   return (

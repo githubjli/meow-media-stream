@@ -1,6 +1,6 @@
 import { Avatar, Card, List } from 'antd';
 import AppLayout from '@/components/layout/AppLayout';
-import { VideoPlayer } from '@/components/player/VideoPlayer';
+import VideoPlayer from '@/components/player/VideoPlayer';
 import CreatorCard from '@/components/cards/CreatorCard';
 import VideoCard from '@/components/cards/VideoCard';
 import { sampleVideos } from '@/lib/api/media';

@@ -2,7 +2,7 @@
 
 import { Card, Tabs } from 'antd';
 import AppLayout from '@/components/layout/AppLayout';
-import { EmptyState } from '@/components/common/EmptyState';
+import EmptyState from '@/components/common/EmptyState';
 
 export default function StudioPage() {
   return (

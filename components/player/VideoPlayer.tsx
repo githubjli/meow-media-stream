@@ -4,7 +4,7 @@ import Hls from 'hls.js';
 import { Button, Spin } from 'antd';
 import { useEffect, useMemo, useRef, useState } from 'react';
 
-export function VideoPlayer({ src, poster }: { src?: string; poster?: string }) {
+export default function VideoPlayer({ src, poster }: { src?: string; poster?: string }) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [waiting, setWaiting] = useState(!src);
   const [retryKey, setRetryKey] = useState(0);

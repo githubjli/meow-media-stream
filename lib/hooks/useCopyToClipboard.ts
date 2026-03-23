@@ -2,7 +2,7 @@
 
 import { App } from 'antd';
 
-export function useCopyToClipboard() {
+export default function useCopyToClipboard() {
   const { message } = App.useApp();
 
   return async (value: string) => {

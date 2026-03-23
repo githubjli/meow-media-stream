@@ -4,10 +4,10 @@ import { BulbOutlined, MenuOutlined, SettingOutlined, UploadOutlined, UserOutlin
 import { Avatar, Button, Drawer, Input, Space } from 'antd';
 import Link from 'next/link';
 import { useState } from 'react';
-import { Logo } from '@/components/common/Logo';
-import { Sidebar } from './Sidebar';
+import Logo from '@/components/common/Logo';
+import Sidebar from './Sidebar';
 
-export function TopNav() {
+export default function TopNav() {
   const [open, setOpen] = useState(false);
 
   return (
