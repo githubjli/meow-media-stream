@@ -1,5 +1,7 @@
+import { env } from '@/lib/config/env';
+
 export async function apiGet(url: string) {
-  const res = await fetch(`/api${url}`, {
+  const res = await fetch(`${env.apiBase}${url}`, {
     credentials: 'include',
   });
 

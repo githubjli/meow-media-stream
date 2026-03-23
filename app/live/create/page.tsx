@@ -4,9 +4,13 @@ import { CheckCircleOutlined, VideoCameraOutlined } from '@ant-design/icons';
 import { Button, Card, Form, Input, Radio, Select, Space, Steps } from 'antd';
 import AppLayout from '@/components/layout/AppLayout';
 import StreamInfoPanel from '@/components/live/StreamInfoPanel';
+import { env } from '@/lib/config/env';
 import { categories } from '@/lib/api/media';
 
 export default function GoLivePage() {
+  const streamKey = 'mm_live_4g9f-5hs7-demo-key';
+  const playbackUrl = `${env.antMediaHlsBase}/${streamKey}.m3u8`;
+
   return (
     <AppLayout>
       <div className="grid gap-6 xl:grid-cols-[minmax(0,1fr)_380px]">
@@ -38,13 +42,13 @@ export default function GoLivePage() {
             <Steps direction="vertical" items={[
               { title: 'Camera detected', description: 'WebRTC preview shell ready for future integration.', status: 'finish', icon: <CheckCircleOutlined /> },
               { title: 'Microphone checked', description: 'Audio source looks healthy.', status: 'finish', icon: <CheckCircleOutlined /> },
-              { title: 'Stream destination verified', description: 'RTMP destination generated from backend payload.', status: 'process' },
+              { title: 'Stream destination verified', description: `RTMP: ${env.rtmpBase} · WebSocket: ${env.antMediaWsUrl}`, status: 'process' },
             ]} />
           </Card>
         </div>
 
         <div className="space-y-6">
-          <StreamInfoPanel rtmpUrl="rtmp://stream.meowmedia.example/live" streamKey="mm_live_4g9f-5hs7-demo-key" playbackUrl="https://stream.meowmedia.example/hls/live-session.m3u8" />
+          <StreamInfoPanel rtmpUrl={env.rtmpBase} streamKey={streamKey} playbackUrl={playbackUrl} />
           <Card className="brand-card border-0">
             <h3 className="mb-3 text-lg font-semibold">Camera mode preview</h3>
             <div className="brand-gradient flex aspect-video items-center justify-center rounded-[20px] border border-dashed border-[#e7d6a5] text-center text-brand-secondary">
