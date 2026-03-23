@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #fffcf3;
+  --primary: #efbc5c;
+  --primary-dark: #b8872e;
+  --secondary: #745f40;
+  --muted: #948261;
+  --text: #2c2c2c;
+  --card-radius: 20px;
+  --soft-shadow: 0 20px 60px rgba(116, 95, 64, 0.1);
+}
+
+html, body {
+  background: var(--background);
+  color: var(--text);
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.ant-btn-primary {
+  box-shadow: none !important;
+}
+
+.brand-card {
+  border-radius: var(--card-radius);
+  box-shadow: var(--soft-shadow);
+}
+
+.brand-gradient {
+  background: linear-gradient(135deg, rgba(239,188,92,0.25), rgba(255,252,243,0.92));
+}
+
+.live-pulse::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 9999px;
+  background: #ff4d4f;
+  display: inline-block;
+  margin-right: 8px;
+  box-shadow: 0 0 0 0 rgba(255, 77, 79, 0.7);
+  animation: pulse 1.8s infinite;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(255, 77, 79, 0.7); }
+  70% { box-shadow: 0 0 0 12px rgba(255, 77, 79, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(255, 77, 79, 0); }
+}
