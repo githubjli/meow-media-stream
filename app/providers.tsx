@@ -4,7 +4,7 @@ import { App, ConfigProvider, theme } from 'antd';
 import { PropsWithChildren } from 'react';
 import { tokens } from '@/styles/tokens';
 
-export function Providers({ children }: PropsWithChildren) {
+export default function Providers({ children }: PropsWithChildren) {
   return (
     <ConfigProvider
       theme={{
