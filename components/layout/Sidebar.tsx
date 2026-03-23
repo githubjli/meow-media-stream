@@ -1,11 +1,13 @@
 'use client';
 
-import { HomeOutlined, PlayCircleOutlined, VideoCameraOutlined, DashboardOutlined } from '@ant-design/icons';
+import { DashboardOutlined, HomeOutlined, PlayCircleOutlined, VideoCameraOutlined } from '@ant-design/icons';
 import { Layout, Menu } from 'antd';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Logo } from '@/components/common/Logo';
 import { categories } from '@/lib/api/media';
+
+const { Sider } = Layout;
 
 const items = [
   { key: '/home', icon: <HomeOutlined />, label: <Link href="/home">Home</Link> },
@@ -18,7 +20,7 @@ export function Sidebar() {
   const pathname = usePathname();
 
   return (
-    <Layout.Sider breakpoint="lg" collapsedWidth={0} width={280} className="!bg-[#fffaf0] !px-4 !py-6">
+    <Sider breakpoint="lg" collapsedWidth={0} width={280} className="!bg-[#fffaf0] !px-4 !py-6">
       <div className="mb-8 px-2"><Logo variant="sidebar" size="medium" /></div>
       <Menu mode="inline" selectedKeys={[pathname]} items={items} className="!border-0 !bg-transparent" />
       <div className="mt-8 px-4">
@@ -29,9 +31,9 @@ export function Sidebar() {
               {category.name}
             </Link>
           ))}
-          <button className="px-4 py-2 text-sm font-medium text-brand-muted">Show more</button>
+          <button type="button" className="px-4 py-2 text-sm font-medium text-brand-muted">Show more</button>
         </div>
       </div>
-    </Layout.Sider>
+    </Sider>
   );
 }
