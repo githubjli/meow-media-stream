@@ -1,3 +1,5 @@
+'use client';
+
 import { Input, Select, Tag } from 'antd';
 import VideoCard from '@/components/cards/VideoCard';
 import AppLayout from '@/components/layout/AppLayout';
@@ -8,7 +10,7 @@ export default function BrowsePage() {
     <AppLayout>
       <div className="space-y-6">
         <div className="flex flex-col gap-4 rounded-[20px] bg-white p-5 shadow-soft lg:flex-row">
-          <Input.Search className="flex-1" placeholder="Search by title, creator, or category" size="large" />
+          <Input allowClear className="flex-1" placeholder="Search by title, creator, or category" size="large" />
           <Select size="large" defaultValue="latest" options={[{ value: 'latest', label: 'Latest' }, { value: 'popular', label: 'Most viewed' }, { value: 'live-first', label: 'Live first' }]} className="min-w-48" />
         </div>
         <div className="flex flex-wrap gap-3">
